@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "indinabilah",
+    "password": null,
+    "database": "restoGo",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
