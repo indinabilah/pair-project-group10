@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Register new Cashier</title>
+  <link href="/css/register.css" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <form action="/cashiers/register" method="POST">
+    <label for="username">
+      <p class="label-txt">USERNAME</p>
+      <input type="text" class="input" id="username" name="username">
+      <div class="line-box">
+        <div class="line"></div>
+      </div>
+    </label>
+    
+    <label for="password">
+      <p class="label-txt">PASSWORD</p>
+      <input type="password" class="input" id="password" name="password">
+      <div class="line-box">
+        <div class="line"></div>
+      </div>
+    </label>
+    <button type="submit">register</button>
+  </form>
+</body>
+</html>
