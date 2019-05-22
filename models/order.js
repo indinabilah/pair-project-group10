@@ -7,6 +7,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Order.associate = function(models) {
     // associations can be defined here
+    Order.belongsTo(models.Customer)
+    Order.belongsTo(models.Menu)
+
   };
   return Order;
 };
