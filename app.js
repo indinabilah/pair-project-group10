@@ -8,10 +8,10 @@ const cashier = require('./routes/cashier');
 app.use(express.static('views'));
 
 //parsing form url-encoded
-router.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
 //routes
-app.use('/customers', customer);
+//app.use('/customers', customer);
 app.use('/cashiers', cashier);
 
 
