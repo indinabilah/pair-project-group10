@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Cashier.associate = function(models) {
     // associations can be defined here
+    Cashier.hasMany(models.Invoice)
   };
   return Cashier;
 };
