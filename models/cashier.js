@@ -5,7 +5,10 @@ module.exports = (sequelize, DataTypes) => {
   const Cashier = sequelize.define('Cashier', {
     username: {
       type: DataTypes.STRING,
-      unique: true
+      unique: {
+        args: true,
+        msg: `username already exists`
+      }
     },
     password: DataTypes.STRING
   }, {});
