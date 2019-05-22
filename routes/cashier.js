@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const Cashiers = require('../controllers/cashier')
 
-router.get('/login', (req, res) => {
-  res.send('./cashiers/login.ejs')
-})
+router.get('/register', Cashiers.registerForm);
+router.post('/register', Cashiers.create);
+router.get('/login', Cashiers.loginForm);
+router.post('/login', Cashiers.login)
 module.exports = router;
