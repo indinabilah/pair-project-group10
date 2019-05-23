@@ -30,6 +30,18 @@ router.get('/edit/:id',(req, res, next) => {
   }
 }, Cashiers.updatePwdForm)
 
+router.get('/invoices', (req, res, next) => {
+  if (req.session.user) next()
+  else {
+    res.status(403);
+    res.render('./cashiers/403.ejs')
+  }
+}, Cashiers.listInvoice)
+
+router.get('/addInvoice/:id', Cashiers.addInvoice)
+// router.post('/addinvoice/:id', (req, res) => {
+//   console.log('aaaaa');
+// })
 router.post('/edit/:id', Cashiers.updatePwd)
 
 router.get('/delete/:id', Cashiers.delete)

@@ -26,25 +26,24 @@
     <body>
             <%- include("../navbar.ejs")%>
         <center>
-        <h2>List Kasir</h2>
+        <h2>Invoices</h2>
         <a href="/cashiers/register" class="btn btn-info">new cashier</a>
-        <a href="/cashiers/invoices" class="btn btn-info">invoices</a>
-        <a href="/cashiers/logout" class="btn btn-info">logout</a><br>
+        <a href="/cashiers/list" class="btn btn-info">show all cashier</a>
+        <a href="/cashiers/logout" class="btn btn-info">logout</a><br><br>
         <table>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Bill</th>
                 <th>Action</th>
             </tr>
-            <% for(let i = 0; i < dataCashiers.length; i++){%>
+            <% for(let i = 0; i < dataInvoices.length; i++){%>
             <tr>
-                <td><%= dataCashiers[i].id %></td>
-                <td><%= dataCashiers[i].username %></td>
+                <td><%= dataInvoices[i].id %></td>
+                <td><%= dataInvoices[i].customerName %></td>
+                <td><%= toRp(dataInvoices[i].bill) %></td>
                 <td>
-                <a href="/cashiers/edit/<%= dataCashiers[i].id %>" class="btn btn-warning">Change password</a>
-                <% if (dataCashiers[i].username !== 'admin') { %>
-                  <a href="/cashiers/delete/<%= dataCashiers[i].id %>" onclick="return confirm('delete <%= dataCashiers[i].username %>')" class="btn btn-danger">delete</a>
-                <% } %>
+                <a href="/cashiers/addinvoice/<%= dataInvoices[i].id %>" class="btn btn-warning">Paid</a>
                 </td>
             </tr>
             <%}%>
