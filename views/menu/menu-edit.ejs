@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <title>RestoGO!</title>
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 80%;
+            }
+            
+            td, th {
+                border-bottom: 1px solid #ddd;
+                text-align: left;
+                padding: 8px;
+            }
+            
+            tr:hover {
+                background-color: gainsboro;
+            }
+        </style>
+    </head>
+    <body>
+            <%- include("../navbar.ejs")%>
+            <br>
+            <br>
+            <br>
+        <h2>Edit Menu</h2>
+        <center>
+            <form action="/students/edit/<%= dataStudents[i].id %>" method="post">
+            <label for="name">Name: </label>
+            <input type="text" name="name" id="" value="<%= getDataEdit.name %>">
+            <br>
+            <label for="stock">Stock: </label>
+            <input type="number" name="stock" id="" value="<%= getDataEdit.stock %>">
+            <br>
+            <label for="price">Price: </label>
+            <input type="text" name="price" id="" value="<%= getDataEdit.price %>">
+            <br>
+            <br>
+            <button type="submit">Edit Menu</button>
+            </form>
+        </center>
+    </body>
+</html>

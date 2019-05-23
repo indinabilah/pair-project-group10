@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Invoice.associate = function(models) {
     // associations can be defined here
-    Invoice.hasOne(models.Customer)
+    // Invoice.hasOne(models.Customer)
     Invoice.belongsTo(models.Cashier)
 
   };
