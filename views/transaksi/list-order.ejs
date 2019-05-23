@@ -4,7 +4,10 @@
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <title>RestoGO!</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <title>List Order</title>
         <style>
             table {
                 font-family: arial, sans-serif;
@@ -24,35 +27,28 @@
         </style>
     </head>
     <body>
-            <%- include("../navbar.ejs") %>
-            <center>
-            <h2>List Customer</h2>
-            <a href="/customers/add" class="btn btn-info"> add menu</a>
-            <br>
-            <br>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <!-- Brand -->
+            <a class="navbar-brand" href="/home">RestoGO!</a>
+        </nav>
+        <center>
+            <h2>List All Order Customer</h2>
             <table>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Money</th>
-                    <th>Action</th>
+                    <th>CustomerID</th>
+                    <th>MenuID</th>
+                    <th>Quantity</th>
                 </tr>
-                <% for(let i = 0; i < dataCustomers.length; i++){%>
+                <% dataOrder.forEach(function(item) {%>
                 <tr>
-                    <td><%= dataCustomers[i].id %></td>
-                    <td><%= dataCustomers[i].name %></td>
-                    <td><%= dataCustomers[i].money %></td>
-                    <td><a href="/customers/delete/<%= dataCustomers[i].id %>" onclick="deleteData()" class="btn btn-danger">delete</a></td>
+                    <td><%= item.id %></td>
+                    <td><%= item.CustomerId %></td>
+                    <td><%= item.MenuId %></td>
+                    <td><%= item.quantity %></td>
                 </tr>
-                <%}%>
+                <%})%>
             </table>
-            </center>
+        </center>
     </body>
-    <script>
-        function deleteData() {
-            // alert("are you sure want to delete this student ?");
-            var txt;
-            var r = confirm("Your Data Deleted!");
-        }
-    </script>
 </html>

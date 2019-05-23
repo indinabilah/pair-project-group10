@@ -26,23 +26,21 @@
     <body>
             <%- include("../navbar.ejs") %>
             <center>
-            <h2>List Customer</h2>
-            <a href="/customers/add" class="btn btn-info"> add menu</a>
+            <h2>List Cashier</h2>
+            <a href="/cashiers/add" class="btn btn-info"> add cashier</a>
             <br>
             <br>
             <table>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Money</th>
+                    <th>Username</th>
                     <th>Action</th>
                 </tr>
-                <% for(let i = 0; i < dataCustomers.length; i++){%>
+                <% for(let i = 0; i < dataCashier.length; i++){%>
                 <tr>
-                    <td><%= dataCustomers[i].id %></td>
-                    <td><%= dataCustomers[i].name %></td>
-                    <td><%= dataCustomers[i].money %></td>
-                    <td><a href="/customers/delete/<%= dataCustomers[i].id %>" onclick="deleteData()" class="btn btn-danger">delete</a></td>
+                    <td><%= dataCashier[i].id %></td>
+                    <td><%= dataCashier[i].username %></td>
+                    <td><a href="/cashiers/delete/<%= dataCashier[i].id %>" onclick="deleteData()" class="btn btn-danger">delete</a></td>
                 </tr>
                 <%}%>
             </table>
