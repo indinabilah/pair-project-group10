@@ -30,6 +30,9 @@
             <br>
         <center>
         <h2>List Menu</h2>
+        <a href="/menus/add" class="btn btn-info"> add menu</a>
+        <br>
+        <br>
         <table>
             <tr>
                 <th>ID</th>
@@ -45,21 +48,11 @@
                 <td><%= dataMenu[i].stock %></td>
                 <td><%= dataMenu[i].price %></td>
                 <td>
-                <a href="/students/edit/<%= dataStudents[i].id %>" class="btn btn-warning">edit</a>
-                <a href="#" onclick="deleteData()" class="btn btn-danger">delete</a>
+                <a href="/menus/edit/<%= dataMenu[i].id %>" class="btn btn-warning">edit</a>
+                <a href="/menus/delete/<%= dataMenu[i].id %>" onclick="deleteData()" class="btn btn-danger">delete</a>
                 </td>
             </tr>
             <%}%>
-            <tr>
-                <td>1</td>
-                <td>Mie Goreng</td>
-                <td>5</td>
-                <td>12000</td>
-                <td>
-                <a href="#" class="btn btn-warning">edit</a>
-                <a href="#" onclick="deleteData()" class="btn btn-danger">delete</a>
-            </td>
-            </tr>
         </table>
         </center>
     </body>

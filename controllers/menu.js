@@ -5,7 +5,7 @@ class MenuController{
     static getAll(req, res){
         MenuModels.findAll()
         .then(data =>{
-            res.render('../views/menu/menu-all.ejs', {
+            res.render('./menu/menu-all.ejs', {
                 dataMenu: data
             })
         })
@@ -31,7 +31,7 @@ class MenuController{
             where:{ id: req.params.id}
         })
         .then(data =>{
-            res.render("menu-edit.ejs", {
+            res.render("./menu/menu-edit.ejs", {
                 getDataEdit: data
             })
         })
@@ -44,8 +44,8 @@ class MenuController{
                 name: req.body.name,
                 stock: req.body.stock,
                 price: req.body.price
-            },{where :{id: req.params.id}}
-        )
+            },{where :{id: req.params.id}
+        })
         .then(data =>{
             res.redirect("/menus")
         })

@@ -4,8 +4,45 @@ const bcrypt = require('bcryptjs');
 
 
 class CashierController {
+  static getAll(req, res){
+    Cashier.findAll()
+    .then(data =>{
+        // res.send(data)
+        res.render("./cashier/cashier-all.ejs", {
+            dataCashier: data
+        })
+    })
+    .catch(err =>{
+        res.send(err)
+    })
+}
+static addCashier(req, res){
+    //res.send(req.body)
+    Cashier.create({
+        username: req.body.username,
+        password: req.body.password
+    })
+    .then(data =>{
+        res.redirect("/cashiers")
+    })
+    .catch(err =>{
+        res.send(err)
+    })
+}
+static deleteCashier(req, res){
+    Cashier.destroy({
+        where:{ id: req.params.id}
+    })
+    .then(data =>{
+        res.redirect("/cashiers")
+    })
+    .catch(err => {
+        res.send(err)
+    })
+}
 
   static home(req, res) {
+    res.render('./home.ejs')
     res.render('./cashiers/cashiers.ejs')
   }
 
@@ -28,6 +65,23 @@ class CashierController {
   }
 
   static login(req, res) {
+    // res.send(req.body)
+    // Cashier.findOne({
+    //   where: {
+    //     username: req.body.username
+    //   }
+    // })
+    // .then(user => {
+    //   const hash = bcrypt.hashSync(req.body.password, 10)
+    //   if (!user) throw `Wrong username / Password`
+    //   if (! bcrypt.compareSync(req.body.password, user.password)) throw `Wrong username / Password`
+    //   else {
+    //     res.send(req.session)
+    //   }
+    // })
+    // .catch(err => {
+    //   res.send(err)
+    // })
     //res.send(req.body)
     Cashier.findOne({
       where: {
