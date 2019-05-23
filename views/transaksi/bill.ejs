@@ -12,29 +12,9 @@
     <body>
         <%- include("../navbar.ejs") %>
         <center>
-            <h2>Checkout Customer</h2>
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Nama</th>
-                    <th>Bayar</th>
-                </tr>
-                <% dataCus.forEach(function(item) {%>
-                <tr>
-                    <td><%= item.id %></td>
-                    <td><%= item.name %></td>
-                    <td><a href="/bayar/<%= item.id %>" >Bayar</a></td>
-                </tr>
-                <%})%>
-            </table>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <table>
-                
-            </table>
+            <form action="/invoice/bayar/:id" method="get">
+            <label for=""></label>
+            </form>
         </center>
     </body>
 </html>

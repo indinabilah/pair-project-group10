@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   Customer.associate = function(models) {
     // associations can be defined here
     Customer.hasMany(models.Order)
-    // Customer.hasOne(models.Invoice)
+    Customer.hasOne(models.Invoice)
   };
   return Customer;
 };

@@ -6,6 +6,7 @@ const customer = require('./routes/customer');
 const cashier = require('./routes/cashier');
 const menu = require('./routes/menu');
 const order = require('./routes/order')
+const invoice = require('./routes/invoice')
 
 //parsing form url-encoded
 app.use(express.urlencoded({ extended: false }));
@@ -35,6 +36,7 @@ app.use('/cashiers', cashier)
 app.use('/customers', customer)
 app.use('/menus', menu)
 app.use('/orders', order)
+app.use('/invoices', invoice)
 
 app.listen(port, () => console.log(`Application started at port: ${port}`))
 
