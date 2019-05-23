@@ -23,5 +23,13 @@ module.exports = (sequelize, DataTypes) => {
     const hash = bcrypt.hashSync(cashier.password, 10);
     cashier.password = hash;
   })
+
+  Cashier.addHook('beforeUpdate', 'genHashPasswordUpdate', cashier => {
+    console.log(`Cashier update Hook executed`);
+    const hash = bcrypt.hashSync(cashier.password, 10);
+    cashier.password = hash;
+  })
+  
+
   return Cashier;
 };
