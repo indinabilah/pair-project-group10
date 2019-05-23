@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <title>RestoGO!</title>
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 80%;
+            }
+            
+            td, th {
+                border-bottom: 1px solid #ddd;
+                text-align: left;
+                padding: 8px;
+            }
+            
+            tr:hover {
+                background-color: gainsboro;
+            }
+        </style>
+    </head>
+    <body>
+            <%- include("../navbar.ejs")%>
+            <br>
+            <br>
+            <br>
+        <center>
+        <h2>List Menu</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Stock</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+            <% for(let i = 0; i < dataMenu.length; i++){%>
+            <tr>
+                <td><%= dataMenu[i].id %></td>
+                <td><%= dataMenu[i].name %></td>
+                <td><%= dataMenu[i].stock %></td>
+                <td><%= dataMenu[i].price %></td>
+                <td>
+                <a href="/students/edit/<%= dataStudents[i].id %>" class="btn btn-warning">edit</a>
+                <a href="#" onclick="deleteData()" class="btn btn-danger">delete</a>
+                </td>
+            </tr>
+            <%}%>
+            <tr>
+                <td>1</td>
+                <td>Mie Goreng</td>
+                <td>5</td>
+                <td>12000</td>
+                <td>
+                <a href="#" class="btn btn-warning">edit</a>
+                <a href="#" onclick="deleteData()" class="btn btn-danger">delete</a>
+            </td>
+            </tr>
+        </table>
+        </center>
+    </body>
+    <script>
+        function deleteData() {
+            // alert("are you sure want to delete this student ?");
+            var txt;
+            var r = confirm("Your Data Deleted!");
+        }
+    </script>
+</html>
