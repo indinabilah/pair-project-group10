@@ -13,26 +13,18 @@
             <a class="dropdown-item" href="/cashiers/logout">Logout</a>
             <a class="dropdown-item" href="/cashiers/register">Register</a>
             <a class="dropdown-item" href="/cashiers/list">List Kasir</a>
+            <a class="dropdown-item" href="/cashiers/listInvoice">List Invoice</a>
         </div>
         </li>
         <!-- Dropdown -->
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            Customer
-        </a>
-        <div class="dropdown-menu">
-            <a class="dropdown-item" href="/customers">List</a>
-            <a class="dropdown-item" href="/customers/add">Add</a>
-        </div>
+        <li class="nav-item">
+        <a class="nav-link" href="/customers">Customer</a>
         </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                Menu
-            </a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="/menus">List</a>
-                <a class="dropdown-item" href="/menus/add">Add</a>
-            </div>
+        <li class="nav-item">
+        <a class="nav-link" href="/menus">Menu</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/orders">Order</a>
         </li>
     </ul>
     <span class="navbar-brand" style="position: absolute; right: 0;"><%= user %></span>
