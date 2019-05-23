@@ -34,12 +34,12 @@
                     <th>Money</th>
                     <th>Action</th>
                 </tr>
-                <% for(let i = 0; i < dataCustomers.lenght; i++){%>
+                <% for(let i = 0; i < dataCustomers.length; i++){%>
                 <tr>
                     <td><%= dataCustomers[i].id %></td>
                     <td><%= dataCustomers[i].name %></td>
                     <td><%= dataCustomers[i].money %></td>
-                    <td><a href="/customers/delete/<%= dataStudents[i].id %>" onclick="deleteData()" class="btn btn-danger">delete</a></td>
+                    <td><a href="#>" onclick="deleteData()" class="btn btn-danger">delete</a></td>
                 </tr>
                 <%}%>
                 <tr>

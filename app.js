@@ -5,13 +5,15 @@ const customer = require('./routes/customer');
 const cashier = require('./routes/cashier');
 const menu = require('./routes/menu');
 
-//route for static files
-app.use(express.static('views'));
-app.use('/', customer)
-app.use('/', menu)
-
 //parsing form url-encoded
 app.use(express.urlencoded({ extended: false }));
+
+//route for static files
+app.use(express.static('views'));
+app.use('/cashiers', cashier)
+app.use('/customers', customer)
+app.use('/menus', menu)
+
 app.listen(port, () => console.log(`Application started at port: ${port}`))
 
 //routes

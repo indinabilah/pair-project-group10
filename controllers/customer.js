@@ -6,7 +6,7 @@ class CustomerController{
         CusModels.findAll()
         .then(data =>{
             // res.send(data)
-            res.render("../views/customers/customer-all.ejs", {
+            res.render("./customers/customer-all.ejs", {
                 dataCustomers: data
             })
         })
@@ -15,17 +15,17 @@ class CustomerController{
         })
     }
     static addCustomer(req, res){
-        res.send(req.body)
-        // CusModels.create({
-        //     name: req.body.name,
-        //     money: req.body.money
-        // })
-        // .then(data =>{
-        //     res.redirect("/customers")
-        // })
-        // .catch(err =>{
-        //     res.send(err)
-        // })
+        //res.send(req.body)
+        CusModels.create({
+            name: req.body.name,
+            money: req.body.money
+        })
+        .then(data =>{
+            res.redirect("/customers")
+        })
+        .catch(err =>{
+            res.send(err)
+        })
     }
     static deleteCustomer(req, res){
         CusModels.destroy({
