@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <title>RestoGO!</title>
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 80%;
+            }
+            
+            td, th {
+                border-bottom: 1px solid #ddd;
+                text-align: left;
+                padding: 8px;
+            }
+            
+            tr:hover {
+                background-color: gainsboro;
+            }
+        </style>
+    </head>
+    <body>
+            <%- include("../navbar.ejs")%>
+            <br>
+            <br>
+            <br>
+        <center>
+        <h2>List Kasir</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            <% for(let i = 0; i < dataCashiers.length; i++){%>
+            <tr>
+                <td><%= dataCashiers[i].id %></td>
+                <td><%= dataCashiers[i].username %></td>
+                <td>
+                <a href="/cashiers/edit/<%= dataCashiers[i].id %>" class="btn btn-warning">Change password</a>
+                <% if (dataCashiers[i].username !== 'admin') { %>
+                  <a href="/cashiers/delete/<%= dataCashiers[i].id %>" onclick="return confirm('delete <%= dataCashiers[i].username %>')" class="btn btn-danger">delete</a>
+                <% } %>
+                </td>
+            </tr>
+            <%}%>
+        </table>
+        </center>
+    </body>
+    <script>
+        function deleteData() {
+            // alert("are you sure want to delete this student ?");
+            var txt;
+            var r = confirm("Your Data Deleted!");
+        }
+    </script>
+</html>
