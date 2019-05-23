@@ -1,3 +1,4 @@
+const session = require('express-session')
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -11,6 +12,25 @@ app.use(express.urlencoded({ extended: false }));
 
 //route for static files
 app.use(express.static('views'));
+
+//session
+app.use(session({
+  secret: 'restoGopek',
+  resave: false,
+  saveUninitialized: true
+}))
+
+//global variable
+app.use((req, res, next) => {
+  user = req.session.user
+  next()
+})
+
+app.get('/', (req,res) => {
+  res.render('./home.ejs')
+})
+
+//route
 app.use('/cashiers', cashier)
 app.use('/customers', customer)
 app.use('/menus', menu)
