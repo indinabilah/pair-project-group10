@@ -29,6 +29,8 @@ module.exports = (sequelize, DataTypes) => {
     const hash = bcrypt.hashSync(cashier.password, 10);
     cashier.password = hash;
   })
+
+  
   
 
   return Cashier;

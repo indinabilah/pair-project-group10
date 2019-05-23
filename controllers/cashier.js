@@ -1,10 +1,12 @@
 const Cashier = require('../models').Cashier
+const Invoice = require('../models').Invoice
+const toRp = require('../helpers/digitgroup')
 const bcrypt = require('bcryptjs');
 
 class CashierController {
 
   static home(req, res) {
-    res.redirect('/cashiers/list');
+    res.redirect('/cashiers/invoices');
   }
 
   static registerForm(req, res) {
@@ -96,6 +98,44 @@ class CashierController {
    })
    .then(() => {
      res.redirect('/cashiers/list')
+   })
+   .catch(err => {
+     res.send(err)
+   })
+ }
+
+ static listInvoice(req, res) {
+   Invoice.getUnassignedInvoice()
+   .then(data => {
+     res.render('./cashiers/cashier-invoices.ejs', {
+       dataInvoices: data,
+       toRp: toRp
+     })
+   })
+   .catch(err => {
+     res.send(err)
+   })
+ }
+
+ static addInvoice(req, res) {
+   //console.log('11111')
+   Cashier.findOne({
+     where: {
+       username: req.session.user
+     }
+   })
+   .then(data => {
+     //res.send(data)
+     Invoice.update({
+       CashierId: data.id
+     }, {
+       where: {
+         id: req.params.id
+       }
+     })
+   })
+   .then(() => {
+     res.redirect('/cashiers/invoices')
    })
    .catch(err => {
      res.send(err)
